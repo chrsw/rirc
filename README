@@ -30,6 +30,10 @@ standard environment variables, i.e.:
 
     $CC, $CFLAGS, $LDFLAGS, $DESTDIR, $PREFIX
 
+If linking Mbed TLS fails, try
+
+    $ make USE_LTO=no
+
 The default install paths are:
 
     /usr/local/bin/rirc
