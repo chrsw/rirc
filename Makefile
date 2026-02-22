@@ -1,8 +1,17 @@
 VERSION = 0.1.8
 
 CC       = cc
-CFLAGS   = -flto -O2
-LDFLAGS  = -flto
+
+OPT     = -O2
+
+USE_LTO ?= yes
+ifeq ($(USE_LTO),yes)
+    CFLAGS  = $(OPT) -flto
+    LDFLAGS = -flto
+else
+    CFLAGS  = $(OPT)
+    LDFLAGS = 
+endif
 
 CPPFLAGS = -I. -D_POSIX_C_SOURCE=200809L -DVERSION=$(VERSION)
 
